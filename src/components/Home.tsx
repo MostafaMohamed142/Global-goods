@@ -1,7 +1,7 @@
 import React from 'react'
 import UseFetch from './UseFetch'
 const Home = ({category,title,subTitle}) => {
-  const {data,loading,error} = UseFetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
+  const {assets,loading,error} = UseFetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
  
 
     if(loading){
@@ -13,12 +13,12 @@ const Home = ({category,title,subTitle}) => {
       
     }
     if (error) {
-      return <p>Error: {error.message}</p>;
+      return <p>Error: {error}</p>;
     }
   return (
           <div className='grid grid-cols-2 gap-5 justify-center items-center p-5 relative mb-2.5 bg-white border-2 border-white-300 w-80'>
           <h3 className='text-black text-2xl leading-9 capitalize'><span className='text-blue-500'>{subTitle}</span> {title}</h3>
-            {data.map((product)=>{
+            {assets.map((product:any)=>{
                 return (
                         <img key={product.title} src={product.image} alt={product.title} loading='lazy' className='w-28 drop-shadow-lg p-4 rounded-lg cursor-pointer '/>
                           
