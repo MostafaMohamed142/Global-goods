@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const Header = () => {
-    const count = useSelector((state)=> state.counter.count)
+    const count = useSelector((state:any)=> state.count)
     const [toggle,setToggle]=useState(false)
     return (
         //  <header className={`fixed w-screen bg-blue-500 z-10 ${toggle ? 'h-screen': ''}`}>
@@ -40,7 +40,7 @@ const Header = () => {
                     </Link>
 
                     
-                    <Link>
+                    <Link to={''}>
                     <button type="submit" className='text-lg pl-5'><i className="fa-solid fa-right-to-bracket text-md mr-3"></i>Log In</button>
                     </Link>
                     
@@ -52,12 +52,12 @@ const Header = () => {
                         <li className='text-md'>Products</li>
                     </ul>
                         <br/>
-                    <Link>
+                    <Link to={''}>
                     <span className='relative -top-4 text-red-600'>{count}</span>
                     <button type="submit" className='text-lg'><i className='fa-solid fa-shopping-cart'></i></button>
                     </Link>
                     <br/>
-                    <Link>
+                    <Link to={''}>
                     <button type="submit" className='text-lg mt-44'><i className="fa-solid fa-right-to-bracket text-md mr-3"></i>Log In</button>
                     </Link>
                 </div>

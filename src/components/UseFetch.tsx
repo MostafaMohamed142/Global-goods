@@ -17,7 +17,7 @@ export type Data = {
                     console.log(response);
                     
                 }catch(error){
-                    setData({assets:[],loading:false,error:error.message || "there's a problem"})
+                    setData({assets:[],loading:false,error:"there's a problem"})
                 }
                 
             }

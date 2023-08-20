@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
@@ -5,7 +6,7 @@ import Products from './components/Products';
 import Header from './components/Header';
 import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
-import React from 'react';
+
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
                   
             </Routes>
       </BrowserRouter>
+      
     </div>
   );
 }

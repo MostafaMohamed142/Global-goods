@@ -4,9 +4,9 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState: [],
   reducers: {
-    addItemToCart: (state, action) => {
+    addItemToCart: (state:any, action:any) => {
       const newItem = action.payload;
-      const existingItemIndex = state.findIndex(item => item.id === newItem.id);
+      const existingItemIndex = state.findIndex((item: { id: any; }) => item.id === newItem.id);
       if (existingItemIndex !== -1) {
         state[existingItemIndex] = {
           ...state[existingItemIndex],
@@ -16,13 +16,13 @@ export const cartSlice = createSlice({
         state.push({ ...newItem, quantity: 0 });
       }
     },
-    removeFromCart: (state, action) => {
+    removeFromCart: (state:any ,action:any) => {
       const itemId = action.payload;
-      return state.filter(item => item.id !== itemId);
+      return state.filter((item: { id: any; }) => item.id !== itemId);
     },
-    incrementItemQuantity: (state, action) => {
+    incrementItemQuantity: (state:any, action:any) => {
       const itemId = action.payload;
-      const itemIndex = state.findIndex(item => item.id === itemId);
+      const itemIndex = state.findIndex((item: {id:any}) => item.id === itemId);
       if (itemIndex !== -1) {
         state[itemIndex] = {
           ...state[itemIndex],
@@ -30,9 +30,9 @@ export const cartSlice = createSlice({
         };
       }
     },
-    decrementItemQuantity: (state, action) => {
+    decrementItemQuantity: (state:any, action:any) => {
       const itemId = action.payload;
-      const itemIndex = state.findIndex(item => item.id === itemId);
+      const itemIndex = state.findIndex((item:{id:any}) => item.id === itemId);
       if (itemIndex !== -1 && state[itemIndex].quantity > 0) {
         state[itemIndex] = {
           ...state[itemIndex],

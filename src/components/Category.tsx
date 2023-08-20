@@ -2,7 +2,7 @@ import React from 'react';
 import UseFetch from './UseFetch';
 import { Link } from 'react-router-dom';
 
-const Category = ({ Category, title }) => {
+const Category = ({ Category, title }:{Category:string,title:string}) => {
     const { assets, loading, error } = UseFetch(`https://fakestoreapi.com/products/category/${Category}`);
     
     if (loading) {

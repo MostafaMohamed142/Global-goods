@@ -1,6 +1,6 @@
 import React from 'react'
 import UseFetch from './UseFetch'
-const Home = ({category,title,subTitle}) => {
+const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:string}) => {
   const {assets,loading,error} = UseFetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
  
 

@@ -4,14 +4,14 @@ import { incrementItemQuantity, decrementItemQuantity, removeFromCart } from '..
 import { decrement } from '../redux/countslice';
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state:any) => state.cart);
   const dispatch = useDispatch();
 
-  const handleIncrement = (itemId) => {
+  const handleIncrement = (itemId:any) => {
     dispatch(incrementItemQuantity(itemId));
   };
 
-  const handleDecrement = (itemId) => {
+  const handleDecrement = (itemId:any) => {
     dispatch(decrementItemQuantity(itemId));
   };
   
@@ -20,7 +20,7 @@ const Cart = () => {
       <h2>Cart</h2>
 
       {cartItems &&
-        cartItems.map((item) => (
+        cartItems.map((item:any) => (
           <div className="grid grid-cols-2 md-grid-col-3 sm-block items-center" key={item.id}>
             <div className="p-5">
               <h2 className="text-sm">Product Name:</h2>
