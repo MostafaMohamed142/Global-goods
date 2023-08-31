@@ -5,7 +5,7 @@ import { cartSlice } from "./cartslice";
 
 const store = configureStore({
     reducer: {
-        counter : counterSlice.reducer,
+        Counter : counterSlice.reducer,
         cart : cartSlice.reducer,
         // quantity : quantitySlice,
         
@@ -13,4 +13,5 @@ const store = configureStore({
 
   
 })
+export type RootState = ReturnType<typeof store.getState>;
 export default store;

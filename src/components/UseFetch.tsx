@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
 export type Data = {
-    assets:string[];
+    assets:any;
     loading:boolean;
     error: string;
 }

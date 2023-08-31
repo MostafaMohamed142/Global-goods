@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { RootState } from '../redux/store'
 
 
 const Header = () => {
-    const count = useSelector((state:any)=> state.count)
+    const count = useSelector((state:RootState)=> state.Counter.count)
+    
     const [toggle,setToggle]=useState(false)
     return (
         //  <header className={`fixed w-screen bg-blue-500 z-10 ${toggle ? 'h-screen': ''}`}>

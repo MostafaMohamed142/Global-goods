@@ -15,6 +15,7 @@ const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:
     if (error) {
       return <p>Error: {error}</p>;
     }
+ 
   return (
           <div className='grid grid-cols-2 gap-5 justify-center items-center p-5 relative mb-2.5 bg-white border-2 border-white-300 w-80'>
           <h3 className='text-black text-2xl leading-9 capitalize'><span className='text-blue-500'>{subTitle}</span> {title}</h3>
