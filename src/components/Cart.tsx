@@ -2,13 +2,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { incrementItemQuantity, decrementItemQuantity, removeFromCart, cartItem } from '../redux/cartslice';
 import { decrement } from '../redux/countslice';
-import { useState } from 'react';
 import { RootState } from '../redux/store';
 
 const Cart = () => {
   const cartItems = useSelector((state:RootState) => state.cart);
   const dispatch = useDispatch();
-  const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
   const handleIncrement = (itemId:number) => {
     dispatch(incrementItemQuantity({id: itemId}));
   };
@@ -19,15 +17,14 @@ const Cart = () => {
   const handleRemoveItem = (itemId: number, itemQuantity: number) => {
     dispatch(removeFromCart(itemId));
     
-    dispatch(decrement(itemQuantity)); // Decrement the count in countslice by itemQuantity
+    dispatch(decrement()); // Decrement the count in countslice by itemQuantity
   };
-  const handlePrice = (itemPrice:number,ItemQuantity:number)=>{
-      const price =  Math.round(itemPrice * ItemQuantity)
-      setCalculatedPrice(price)
-  }
+    const totalPrice = cartItems.reduce((total,item)=>{
+      return  Math.round(( total + item.price*item.quantity))
+    },0)
   return (
     <div>
-      <h2>Cart</h2>
+      <h2>{cartItems.length===0? "YOUR CART IS EMPTY" : ""}</h2>
 
       {cartItems &&
         cartItems.map((item:cartItem) => (
@@ -47,17 +44,18 @@ const Cart = () => {
                 <h2 className="text-center">Quantity</h2>
                 <span className="text-center w-10">{item.quantity}</span>
               </div>
-              <button className="m-auto text-blue-600" onClick={() => handleDecrement(item.id)}>
+              <button className="m-auto text-blue-600" onClick={() => handleDecrement(item.id)} disabled={item.quantity===1}>
                 <i className="fa-solid fa-minus text-md"></i>
               </button>
               <button className="m-auto" onClick={()=>handleRemoveItem(item.id,item.quantity)}>
                 <i className="fa-solid fa-trash text-md text-red-500"></i>
-              </button>
-              <button onClick={()=>handlePrice(item.price,item.quantity)}>calcualte price</button>
-              <span>{calculatedPrice}</span>
+              </button> 
             </div>
           </div>
         ))}
+        <hr/>
+          {/* <button onClick={()=>handlePrice}>calcaute price</button> */}
+          <span>totalPrice : {totalPrice}</span>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React from 'react'
-import UseFetch from './UseFetch'
+
+ import UseFetch from './UseFetch'
+
 const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:string}) => {
   const {assets,loading,error} = UseFetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
- 
 
     if(loading){
       return  <div className='flex absolute z-20 left-1/2 top-1/2'>
@@ -27,11 +27,6 @@ const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:
             })}
             <button className='text-left hover:underline active:text-blue-700' >show more</button>
           </div>
-         
-          
-          
-
-     
   )
 }
 

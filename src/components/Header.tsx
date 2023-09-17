@@ -1,13 +1,38 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 import { RootState } from '../redux/store'
-
-
+import UseFetch from './UseFetch'
+import debounce from 'lodash/debounce';
+interface searchItem {
+    id:number;
+    title:string[]
+}
 const Header = () => {
     const count = useSelector((state:RootState)=> state.Counter.count)
-    
     const [toggle,setToggle]=useState(false)
+    const [searchInput, setSearchInput] = useState('');
+    const { assets, loading, error } = UseFetch(
+          `https://fakestoreapi.com/products/`  
+        );
+        if (loading) {
+            return <div className='flex absolute z-20 left-1/2 top-1/2'>
+                <svg className="animate-spin h-5 w-5 mr-3 bg-blue-500 rounded-xl border-2 border-dashed" viewBox="0 0 24 24"></svg>Loading...
+            </div>;
+        }
+    
+        if (error) {
+            return <p>Error: {error}</p>;
+        }
+        const filteredData:searchItem[] = assets.filter((item: { title: string }) =>
+            searchInput? item.title.toLowerCase().includes(searchInput.toLowerCase()) : ''         
+        );
+        
+        const debouncedSearch = debounce((query: string) => {
+            setSearchInput(query);
+          }, 300);
+        
+      
     return (
         //  <header className={`fixed w-screen bg-blue-500 z-10 ${toggle ? 'h-screen': ''}`}>
          <header>
@@ -33,6 +58,14 @@ const Header = () => {
                                 Products
                             </li>
                         </Link>
+                        <li>
+                            {/* Search */}
+                           <input type='text' value={searchInput} onChange={(e)=>debouncedSearch(e.target.value)}/>
+                           <div className='searchProducts'>
+                            {filteredData.map((item:searchItem)=><li key={item.id}><Link to={`/product/${item.id}`}>{item.title}</Link></li>)}
+                           </div>
+                           
+                        </li>
                     </ul>
                 </div>
                 <div className='m-auto relative lg:flex justify-between items-end sm:hidden xs:hidden gap-4'>
