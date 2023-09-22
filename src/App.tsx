@@ -8,21 +8,25 @@ import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
 import Main from './components/Main';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
           <Header/>
-            
+          {/* <SignUp/> */}
             <Routes>
                 <Route path='/' element={<Main/>}/>
                   <Route path='/products' element={<Products/>}/>
                   <Route path='/product/:id' element={<ProductPage/>}/>
                   <Route path='/cart' element={<Cart/>}/>
+                  <Route path='/login' element={<Login/>}/>
+                  <Route path='/signup' element={<SignUp/>}/>
+
                   
             </Routes>
-      </BrowserRouter> */}
-      <Login/>
+      </BrowserRouter>
+      
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import { auth } from "./firebase";
 import { useDispatch } from 'react-redux';
-import {setError, setUser } from '../redux/UserSlice';
+import {User, setError, setUser } from '../redux/UserSlice';
 
 
 const Auth = () => {
@@ -10,7 +10,14 @@ const Auth = () => {
         const data = auth.onAuthStateChanged((user:any)=>{
             try {
                if(user){
-                dispatch(setUser(user))
+                const firebaseUser : User ={
+                  uid: user.uid,
+                  displayName:user.displayName,
+                  email:user.email
+                }
+                dispatch(setUser(firebaseUser))
+               }else{
+                dispatch(setUser(null))
                }
             } catch (error:any) {
                 setError(error.message)
