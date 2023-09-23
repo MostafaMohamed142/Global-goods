@@ -55,7 +55,8 @@ const Cart = () => {
         ))}
         <hr/>
           {/* <button onClick={()=>handlePrice}>calcaute price</button> */}
-          <span>totalPrice : {totalPrice}</span>
+          {/* <span>totalPrice : {totalPrice}</span> */}
+          <button onClick={()=>console.log(totalPrice)}>Proceed To Checkout</button>
     </div>
   );
 };
