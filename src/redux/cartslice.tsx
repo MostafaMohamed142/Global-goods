@@ -3,7 +3,8 @@ export interface cartItem{
   id: number;
   title:string;
   price:number;
-  quantity:number
+  quantity:number;
+  image:string;
 }
 const initialState:cartItem[]=[];
 export const cartSlice = createSlice({

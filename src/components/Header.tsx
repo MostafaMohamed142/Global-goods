@@ -47,7 +47,7 @@ const Header = () => {
         //  <header className={`fixed w-screen bg-blue-500 z-10 ${toggle ? 'h-screen': ''}`}>
          <header>
 
-            <nav className='lg:flex justify-stretch p-3 bg-slate-500'>
+            <nav className='lg:flex justify-stretch p-3 heads' style={{background:'cadetblue'}}>
                 <div className='m-auto'>
                     <button className='lg:hidden sm:block p-2' onClick={()=>setToggle(!toggle)}
                     ><i className='fa-solid fa-bars'></i>
@@ -84,8 +84,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='m-auto relative lg:flex justify-between items-end sm:hidden xs:hidden gap-4'>
-                    <Link to='/cart'>
-                    <span className='absolute left-4 bottom-4 text-red-600'>{count}</span>
+                    <Link to='/checkout'>
+                    <span className='absolute left-4 bottom-4 count'>{count}</span>
                     <button type="submit" className='text-lg'><i className='fa-solid fa-shopping-cart'></i></button>
                     </Link>
 
@@ -114,8 +114,8 @@ const Header = () => {
                             )}
                            </div>
                         <br/>
-                    <Link to={'/cart'}>
-                    <span className='relative -top-4 text-red-600'>{count}</span>
+                    <Link to={'/checkout'}>
+                    <span className='relative -top-4 count'>{count}</span>
                     <button type="submit" className='text-lg cursor-pointer'><i className='fa-solid fa-shopping-cart mt-10'></i></button>
                     </Link>
                     <br/>

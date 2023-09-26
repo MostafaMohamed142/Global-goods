@@ -1,6 +1,9 @@
 
  import UseFetch from './UseFetch'
-
+ interface Product {
+    title : string
+    image : string
+ }
 const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:string}) => {
   const {assets,loading,error} = UseFetch(`https://fakestoreapi.com/products/category/${category}?limit=4`);
 
@@ -19,7 +22,7 @@ const Home = ({category,title,subTitle}:{category:string,title:string,subTitle?:
   return (
           <div className='grid grid-cols-2 gap-5 justify-center items-center p-5 relative mb-2.5 bg-white border-2 border-white-300 w-80'>
           <h3 className='text-black text-2xl leading-9 capitalize'><span className='text-blue-500'>{subTitle}</span> {title}</h3>
-            {assets.map((product:any)=>{
+            {assets.map((product:Product)=>{
                 return (
                         <img key={product.title} src={product.image} alt={product.title} loading='lazy' className='w-28 drop-shadow-lg p-4 rounded-lg cursor-pointer '/>
                           

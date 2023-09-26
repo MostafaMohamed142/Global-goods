@@ -1,26 +1,12 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Home from './Home'
 import Marque from './Marquee'
 import Accordin from './Accordin'
 import { dior, dior2, promo, shoes, watch } from '../images'
+import { usePromoCode } from './UsePromo'
 const HomePage = () => {
-  const [discount,setDiscount] = useState('')
-  function getPromo(){
-    const discountPercentage = Math.floor(Math.random() * 70) + 1;
-
-    const codeLength = 8;
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let promoCode = '';
-
-    for (let i = 0; i < codeLength; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        promoCode += characters.charAt(randomIndex);
-    }
-
-    // Combine the discount percentage and code
-    console.log(`${discountPercentage}%OFF-${promoCode}`)
-    return setDiscount(`${discountPercentage}%OFF-${promoCode}`);
-  }
+    const {promoCode,generatePromoCode} = usePromoCode()
+  
   return (
     <div className='container-2xlg'>
         <div className='lg:flex flex-1 sm:block md:grid md:grid-cols-2 justify-between bg-gray-200 p-3'>
@@ -41,8 +27,7 @@ const HomePage = () => {
           <div className='flex'>
             <div className='m-auto text-center'>
               <img src={promo} alt='promo code' className='w-full p-2' loading='lazy'/>
-              <button className='disBtn' onClick={getPromo}>Get Your Discount Now</button>
-              <p>{discount}</p>
+              <button className='disBtn' onClick={generatePromoCode}>Get Your Discount Now</button>
             </div>
             <div className='template'>
               <img src={shoes} alt='promo code' className='w-1/2 p-2' loading='lazy'/>

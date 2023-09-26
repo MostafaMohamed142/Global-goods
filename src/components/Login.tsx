@@ -21,7 +21,7 @@ const Login = () => {
             [target.name] : target.value
         })
     }
-    const handleLogin = async ()=>{
+    const  handleLogin = async ()=>{
         let char = newUser.email.split('@')[0];
         try {
             await signInWithEmailAndPassword(auth,newUser.email,newUser.password)
@@ -31,7 +31,7 @@ const Login = () => {
         } catch (error) {
             console.log(error)
         }
-        navigate('/')
+        navigate(-1)
         setNewUser({
             email:'',
             password:''
