@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import {useState} from 'react'
 import {signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase/firebase'
@@ -15,7 +15,7 @@ const Login = () => {
         email:"",
         password:""
     })
-    const handleChange =({target}:any)=>{
+    const handleChange =({target}:ChangeEvent<HTMLInputElement>)=>{
         setNewUser({
             ...newUser,
             [target.name] : target.value
