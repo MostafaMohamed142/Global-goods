@@ -24,7 +24,7 @@ function App() {
                   
             </Routes>
       </BrowserRouter>
-      <footer className='relative bottom-0'>
+        <footer>
         <Footer/>
       </footer>
         

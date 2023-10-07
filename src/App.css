@@ -146,16 +146,16 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     margin: auto;
+    gap: 5px;
   }
-  .template img{
+  /* .template img{
     width: 250px;
     height: 250px;
-  }
+  } */
   .disBtn{
     border: 1px solid aliceblue;
     position: relative;
-    bottom: 15%;
-    left: 8%;
+    top: -30px;
     font-size: 22px;
     padding: 10px;
     color: #ffad56;

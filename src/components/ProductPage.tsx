@@ -35,7 +35,7 @@ const ProductPage = () => {
         <i className='fa-solid fa-arrow-left'></i>
       </span>
 
-      <div className='flex sm:block xs:block md:flex'>
+      <div className='lg:flex sm:block xs:block md:flex'>
         <img src={assets.image} className='w-96 sm:w-50 p-4' alt='productImage' loading='lazy' />
         <div className='block'>
           <h2 className='text-2xl p-5'>{assets.title}</h2>

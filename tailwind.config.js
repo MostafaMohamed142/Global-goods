@@ -4,7 +4,7 @@ export const content = ["./src/**/*.{js,jsx,ts,tsx}"];
 export const theme = {
   extend: {},
   screens:{
-    'xs': '430px',
+    'xs': '350px',
       ...defaultTheme.screens,
   }
 };

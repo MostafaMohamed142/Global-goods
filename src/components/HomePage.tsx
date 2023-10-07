@@ -25,15 +25,15 @@ const HomePage = () => {
         <div className=''>
             <h2 className='text-center text-3xl p-10 text-blue-600 underline'>Up To 70% On Your First Purchase</h2>
           <div className='flex'>
-            <div className='m-auto text-center'>
+            <div className='m-auto text-center relative'>
               <img src={promo} alt='promo code' className='w-full p-2' loading='lazy'/>
-              <button className='disBtn' onClick={generatePromoCode}>Get Your Discount Now</button>
+              <button className='disBtn lg:text-large md:text-base xs:text-sm' onClick={generatePromoCode}>Get Your Discount Now</button>
             </div>
             <div className='template'>
-              <img src={shoes} alt='promo code' className='w-1/2 p-2' loading='lazy'/>
-              <img src={watch} alt='promo code' className='w-1/2 p-2' loading='lazy'/>
-              <img src={dior} alt='promo code' className='w-1/2 p-2' loading='lazy'/>
-              <img src={dior2} alt='promo code' className='w-1/2 p-2' loading='lazy'/>
+              <img src={shoes} alt='promo code' className='lg:w-40 lg:h-40 md:w-28 md:h-28 xs:w-60 xs:h-24 p-2' loading='lazy'/>
+              <img src={watch} alt='promo code' className='lg:w-40 lg:h-40 md:w-28 md:h-28 xs:w-60 xs:h-20' loading='lazy'/>
+              <img src={dior} alt='promo code' className='lg:w-40 lg:h-40 md:w-28 md:h-28 xs:w-60 xs:h-20' loading='lazy'/>
+              <img src={dior2} alt='promo code' className='lg:w-40 lg:h-40 md:w-28 md:h-28 xs:w-60 xs:h-20' loading='lazy'/>
               
             </div>
           </div>

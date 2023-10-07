@@ -52,11 +52,12 @@ const Header = () => {
                     <button className='lg:hidden sm:block p-2' onClick={()=>setToggle(!toggle)}
                     ><i className='fa-solid fa-bars'></i>
                     </button>
-                    <Link to='/' className='p-2 text-md lg:flex items-start sm:hidden xs:hidden '>
+                    <li className='p-2 text-md lg:flex items-start sm:hidden xs:hidden '><Link to='/' >
                         Global Goods
                     </Link>
+                    </li>
                 </div>
-                <div className='m-auto lg:flex sm:hidden relative'>
+                <div className='m-auto lg:flex md:hidden xs:hidden sm:hidden relative'>
                     <ul className='lg:flex sm:hidden xs:hidden justify-center gap-3'>
                         <Link to='/'>
                             <li className='text-lg'>
