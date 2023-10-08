@@ -9,6 +9,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import Checkout from './components/Checkout';
+import End from './components/End';
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
                   <Route path='/login' element={<Login/>}/>
                   <Route path='/signup' element={<SignUp/>}/>
                   <Route path='/checkout' element={<Checkout/>}/>
-                  
+                  <Route path='/end' element={<End/>}/>
             </Routes>
       </BrowserRouter>
         <footer>

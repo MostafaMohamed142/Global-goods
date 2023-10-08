@@ -43,7 +43,7 @@ const SignUp = () => {
                     height: '635px',width:'690px'}}/>
             </div>
       
-                    <div className='lg:w-1/3 md:w-1/2 sm:w-20 m-auto flex flex-col gap-6 items-start'>
+                    <div className='lg:w-1/3 md:w-1/2 sm:w-20 m-auto flex flex-col gap-6 items-start lg:relative md:absolute sm:absolute xs:absolute md:z-20 sm:z-30 xs:z-10 top-52 p-5'>
                         <input type='text' value={newUser.email} name='email' onChange={handleChange} className='rounded' placeholder='E-mail' style={{border: '1px solid cadetblue',
                             padding: '5px 27px'}}/>
                                     <input type='password' value={newUser.password} name='password' className='rounded' onChange={handleChange} placeholder='Password' style={{border: '1px solid cadetblue',

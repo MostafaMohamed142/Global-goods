@@ -168,12 +168,12 @@
     transition: .5s all ease-in;
   }
   .count{
-    color: white;
+    color: red;
     font-size: 11px;
-    width: 15px;
     border: 1px solid white;
-    height: 18px;
     border-radius: 50%;
     text-align: center;
-    background: brown;
+    background: aliceblue;
+    padding: 1px 4px;
+
   }

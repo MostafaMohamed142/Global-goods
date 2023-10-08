@@ -219,7 +219,7 @@ const Checkout = () => {
         <p className="text-2xl font-semibold text-gray-900">${totalPrice+8}</p>
       </div>
     </div>
-    <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" onClick={()=>{user? navigate('/loign'):navigate('/signup')}}>Place Order</button>
+    <button className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white" onClick={()=>{user? navigate('/end'):navigate('/signup')}}>Place Order</button>
   </div>
 </div>
 </>

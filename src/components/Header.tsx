@@ -42,12 +42,13 @@ const Header = () => {
                 setToggle(false)
             }
         })
-      
+        
+        
     return (
         //  <header className={`fixed w-screen bg-blue-500 z-10 ${toggle ? 'h-screen': ''}`}>
          <header>
 
-            <nav className='lg:flex justify-stretch p-3 heads' style={{background:'cadetblue'}}>
+            <nav className={toggle ?  'h-full w-full fixed z-50' : "relative h-20 w-100 lg:flex justify-stretch p-3 heads"} style={{background:'cadetblue'}}>
                 <div className='m-auto'>
                     <button className='lg:hidden sm:block p-2' onClick={()=>setToggle(!toggle)}
                     ><i className='fa-solid fa-bars'></i>
@@ -98,29 +99,34 @@ const Header = () => {
                     
                 </div>
                 {/* mobile view */}
-                <div className={`bg-gray-400 w-96 h-96 p-10 relative ${toggle? 'block' : 'hidden'}`}>
+                <div className={`p-10 relative ${toggle? 'block' : 'hidden'}`}>
                     <ul>
-                       <Link to={'/'}> <li className='text-md mb-3 cursor-pointer'>Home</li></Link>
-                        <Link to={'/products'}><li className='text-md cursor-pointer'>Products</li></Link>
+                       <Link to={'/'} onClick={()=> setToggle(false)}> <li className='text-md mb-3 cursor-pointer'>Home</li></Link>
+                        <Link to={'/products' } onClick={()=> setToggle(false)}><li className='text-md cursor-pointer'>Products</li></Link>
+                        
                     </ul>
                     <input type='text' value={searchInput} onChange={(e)=>debouncedSearch(e.target.value)} className='mt-2 rounded-sm border-blue-300 w-full'/>
-                           <div className='searchProducts relative overflow-scroll h-28 rounded'>
+                    <Link to={'' } onClick={()=> setToggle(false)}><li className='text-md list-none mt-1 cursor-pointer'>Privacy & Policy</li></Link>
+                    <Link to={'' } onClick={()=> setToggle(false)}><li className='text-md list-none cursor-pointer'>Support</li></Link>
+
+                           <div className='searchProducts relative overflow-scroll h-40 rounded'>
                             {filteredData.map((item:searchItem)=>
                             
-                            <ul className='bg-black p-2' style={{backgroundColor: '#f79696',
+                            <ul className='bg-black p-2' style={{backgroundColor: 'black',
                                 top: '30px'}}>
-                              <li key={item.id} className='text-black hover:text-white' onClick={()=>{setToggle(false);debouncedSearch('')}}><Link to={`/product/${item.id}`}>{item.title}</Link></li>                          
+                              <li key={item.id} className='text-white hover:text-red-500' onClick={()=>{setToggle(false);debouncedSearch('')}}><Link to={`/product/${item.id}`}>{item.title}</Link></li>                          
                             </ul>
                             
                             )}
                            </div>
+                           
                         <br/>
-                    <Link to={'/checkout'}>
+                    <Link to={'/checkout'} onClick={()=> setToggle(false)}>
                     <span className='relative -top-4 count'>{count}</span>
                     <button type="submit" className='text-lg cursor-pointer'><i className='fa-solid fa-shopping-cart mt-10'></i></button>
                     </Link>
                     <br/>
-                    <Link to={'/login'}>
+                    <Link to={'/login'} onClick={()=> setToggle(false)}>
                     <button type="submit" className='text-lg cursor-pointer'><i className="fa-solid fa-right-to-bracket text-md mr-3"></i>Log In</button>
                     </Link>
                     {user? <span>{user.displayName}</span> : ''}

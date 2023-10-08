@@ -38,12 +38,12 @@ const Login = () => {
         })
     }
   return (
-    <div className='flex lg:gap-0 sm:gap-3 bg-black'>
+    <div className=':lg:flex md:flex sm:block xs:block  lg:gap-0 sm:gap-3 bg-black'>
         <div className='lg:w-3/4 md:w-1/2 sm:w-36'>
-            <img src={login} alt='loginpatch' loading='lazy' className='' style={{
+            <img src={login} alt='loginpatch' loading='lazy' className='sm:w-100 xs:w-100' style={{
                     height: '635px',width:'690px'}}/>
-        </div>
-        <div className='lg:w-1/3 md:w-1/2 sm:w-20 m-auto flex flex-col gap-6 items-start'>
+        </div>p-5
+        <div className='lg:w-1/3 md:w-1/2 sm:w-20 m-auto flex flex-col gap-6 items-start lg:relative md:relative sm:absolute xs:absolute  md:z-20 sm:z-30 xs:z-10 lg:top-0 md:top-0 sm:top-52 xs:top-52 p-5'>
                 <input type='text' value={newUser.email} name='email' onChange={handleChange} className='rounded' placeholder='E-mail' style={{border: '1px solid cadetblue',
   padding: '5px 27px'}}/>
                 <input type='password' value={newUser.password} name='password' className='rounded' onChange={handleChange} placeholder='Password' style={{border: '1px solid cadetblue',
