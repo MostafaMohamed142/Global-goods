@@ -31,7 +31,7 @@ const SignUp = () => {
             })
             dispatch(setUser({email:newUser.email,displayName:char,uid:''}))
             console.log("sucess")
-            navigate('/')
+            navigate(-1)
         } catch (error) {
             console.log(error)
         }
